@@ -1,14 +1,23 @@
 //generic stats object
 
-let p1Name = "";
+let p1Name = "Raiden";
 
 let p1Stats = {
-
+  hp : 100,
+  my : 80,
+  atk : 10,
+  def : 60,
+  sp : 10,
 }
 
-let p2Name = "";
+let p2Name = "Scorpion";
 
 let p2Stats = {
+  hp : 120,
+  my : 60,
+  atk : 30,
+  def : 45,
+  sp : 5,
 
 }
 
