@@ -21,14 +21,33 @@ let p2Stats = {
 
 }
 
-let battle = {
+let p1battle = {
 
-  attack: function(){},
-  defend: function(){}
+  attack: function(mv){
+    if (mv == 1){
+      return this.moves.other();
+   }
+  },
+
+  
+  defend: function(atkmv){
+    let rawDamge
+  }
 
 }
 
-
+let phsyical = {
+  razerPunch: fuction(){
+    let baseDamage = this.stat.atk * 0.75;
+    let bonus = 0.5 * this.statatk * Math.random(),
+    return baseDamge + bonus
+  }
+}
+hydroPrump: function(){
+  if(this.stats.mp >= 8){
+    this.stas.mp = this.stats.
+  }
+}
 
 
 
