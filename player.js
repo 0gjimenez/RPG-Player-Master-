@@ -37,21 +37,58 @@ let p1battle = {
 }
 
 let phsyical = {
-  razerPunch: fuction(){
+
+  razerPunch: function(){
     let baseDamage = this.stat.atk * 0.75;
-    let bonus = 0.5 * this.statatk * Math.random(),
-    return baseDamge + bonus
+    let bonus = 0.5 * this.statatk * Math.random();
+    return baseDamge + bonus;
+  },
+
+  charge: function(){
+    baseDamage = this.stats.atk*1
+    bonus = 0.5 * this.stats.atk* Math.random();
+      return baseDamge + bonus;
+
+  },
+
+  Gohun: function(){
+    baseDamage = this.stats.atk
+    bonus = 2 * this.stats.atk;
+      return baseDamge + bonus;
+  },
+
+  RoundHouseKick: function(){
+    baseDamage = this.stats.atk * 1.5
+    bonus = 3 * this.stats.atk* Math.random(0.33);
+      return baseDamge + bonus;
+  },
+  
+  Falcon: function(){
+    baseDamage = this.stats.atk * 0.5
+    bonus = 1 * this.stats.atk* Math.random();
+      return baseDamge + bonus;
+  },
+
+}//end of physical
+
+let magic = {
+  hydroPrump: function(){
+    if(this.stats.mp >= 8){
+      this.stas.mp = this.stats.mp -8;
+      let tetradice = Math.random();
+      let pump = Math.ceil(this.stats.sp/3);
+      if(tetradice < 0.10){
+        return pump;
+      }
+    else if(tetradice < 0.30){
+      return 2*pump;
+    }
+    else if(tetradice < 0.60){
+      return 3*pump;
+    }
   }
-}
-hydroPrump: function(){
-  if(this.stats.mp >= 8){
-    this.stas.mp = this.stats.
-  }
-}
 
-
-
-
+},
 
 
 
