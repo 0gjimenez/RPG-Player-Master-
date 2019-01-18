@@ -52,9 +52,8 @@ let phsyical = {
   },
 
   Gohun: function(){
-    baseDamage = this.stats.atk
-    bonus = 2 * this.stats.atk;
-      return baseDamge + bonus;
+   bonus = 2 * this.stats.atk;
+      return bonus;
   },
 
   RoundHouseKick: function(){
@@ -86,9 +85,11 @@ let magic = {
     else if(tetradice < 0.60){
       return 3*pump;
     }
-  }
+  },
 
-},
+
+
+}//end of magic
 
 
 
