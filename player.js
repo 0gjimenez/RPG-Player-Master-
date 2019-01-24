@@ -1,6 +1,6 @@
 //generic stats object
 
-let p1Name = "Raiden";
+let p1Name = "Rhino";
 
 let p1Stats = {
   hp : 100,
@@ -10,31 +10,88 @@ let p1Stats = {
   sp : 10,
 }
 
-let p2Name = "Scorpion";
+let p1Moves = {
+  charge: function(){
+    baseDamage = this.stats.atk*1
+    bonus = 0.5 * this.stats.atk* Math.random();
+      return baseDamge + bonus;
 
-let p2Stats = {
-  hp : 120,
-  my : 60,
-  atk : 30,
-  def : 45,
-  sp : 5,
+  },
 
+  Gohun: function(){
+   bonus = 2 * this.stats.atk;
+      return bonus;
+  },
+
+  RoundHouseKick: function(){
+    baseDamage = this.stats.atk * 1.5
+    bonus = 3 * this.stats.atk* Math.random(0.33);
+      return baseDamge + bonus;
+  },
+  FalconPunch: function(){
+    baseDamage = this.stats.atk * 0.5
+    bonus = 1 * this.stats.atk* Math.random();
+      return baseDamge + bonus;
+  }
 }
 
 let p1battle = {
 
   attack: function(mv){
     if (mv == 1){
-      return this.moves.other();
+      return this.moves.Charge();
    }
+   if (mv == 2){
+    return this.moves.Gohun();
+ }
+  if (mv == 3){
+    return this.moves.RoundHouseKick();
+  }
+  if (mv == 4){
+    return this.moves.FalconPunch();
+  }
   },
-
-  
   defend: function(atkmv){
-    let rawDamge
+    let rawDamge = atkmv;
+    let totalDamage = rawDamge - this.stats.def;
+    if(totalDamage <=0){
+      this.stats.hp = this.stats.hp - 1;
+    }
+    else{
+      this.stats.hp = this.stats.hp - totalDamage;
+    }
   }
 
 }
+
+
+
+
+//Assembling your player.
+
+let player1 = {
+  name: p1Name,
+  stats: p1Stats,
+  moves: p1Moves,
+  battle:p1Battle
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let phsyical = {
 
@@ -62,7 +119,7 @@ let phsyical = {
       return baseDamge + bonus;
   },
   
-  Falcon: function(){
+  FalconPunch: function(){
     baseDamage = this.stats.atk * 0.5
     bonus = 1 * this.stats.atk* Math.random();
       return baseDamge + bonus;
@@ -85,7 +142,8 @@ let magic = {
     else if(tetradice < 0.60){
       return 3*pump;
     }
-  },
+  }
+},
 
 
 
@@ -100,28 +158,27 @@ let magic = {
 
 
 
+let p2Name = "Scorpion";
 
+let p2Stats = {
+  hp : 120,
+  my : 60,
+  atk : 30,
+  def : 45,
+  sp : 5,
 
-
-let p1Pack = [2,2,1,0,1,1,0,0];
-
-
-//Assembling your player.
-
-let player1 = {
-  name: p1Name,
-  stats: p1Stats,
-  moves: p1Moves,
-  use: function(){
-    //fill in with a ton of if and else ifs
-  },
-  pack: myPack,
-  battle: {
-    attack: function(mv){
-      //fill in logic
-    },
-    defend: function(atkmv){
-      //fill in logic
-    }
+}
+let p2Moves = {
+  Earthquake: function(){
+    baseDamge = 1.25 *
   }
+}
+
+
+
+let player2 = {
+  name: p2Name,
+  stats: p2Stats,
+  moves: p2Moves,
+  battle:p2Battle
 }
