@@ -97,7 +97,7 @@ let phsyical = {
 
   razerPunch: function(){
     let baseDamage = this.stat.atk * 0.75;
-    let bonus = 0.5 * this.statatk * Math.random();
+    let bonus = 0.5 * this.stat.atk * Math.random();
     return baseDamge + bonus;
   },
 
@@ -147,6 +147,7 @@ let magic = {
 
 
 
+
 }//end of magic
 
 
@@ -170,15 +171,70 @@ let p2Stats = {
 }
 let p2Moves = {
   Earthquake: function(){
-    baseDamge = 1.25 *
+    if(this.stats.mp >= 10){
+      this.stats.mp = this.stats.mp -10;
+      baseDamge = this.stats.sp *1.25;
+      bonus = 0.25 * this.stats.sp
+      this.stats.hp = this.stats.hp - baseDamge * 0.33;
+    }
+  },
+  pyroBall: function(){
+    if(this.stats.mp >= 6){
+      this.stas.mp = this.stats.mp -6;
+      baseDamage = this.stats.sp *0.88;
+      bonus = this.stats.sp *0.32;
   }
-}
+},
+  lightSlap: function(){
+    if(this.stats.mp >= 10){
+      this.stats.mp = this.stats.mp -10;
+      baseDamge = this.stats.sp * 0.66;
+      bonus = 0.84 * this.stats.sp * Math.random();
+    }
+  },
+  blizzard: function(){
+    if(this.stats.mp >= 14){
+      this.stats.mp = this.stats.mp -14;
+    baseDamge = 1 * this.stats.sp;
+    bonus = 0.5 * Math.random();
+    }
+  }  
+  
+  
+  let p1battle = {
+
+    attack: function(mv){
+      if (mv == 1){
+        return this.moves.Earthquake();
+     }
+     if (mv == 2){
+      return this.moves.pyroBall();
+   }
+    if (mv == 3){
+      return this.moves.lightSlap();
+    }
+    if (mv == 4){
+      return this.moves.blizzard();
+    }
+  }
+},
+    defend: function(atkmv){
+      let rawDamge = atkmv;
+      let totalDamage = rawDamge - this.stats.def;
+      if(totalDamage <=0){
+        this.stats.hp = this.stats.hp - 1;
+      }
+      else{
+        this.stats.hp = this.stats.hp - totalDamage;
+      }
+    }
+  
+  }
 
 
-
-let player2 = {
-  name: p2Name,
-  stats: p2Stats,
-  moves: p2Moves,
-  battle:p2Battle
+  let player2 = {
+    name: p2Name,
+    stats: p2Stats,
+    moves: p2Moves,
+    battle:p2Battle
 }
